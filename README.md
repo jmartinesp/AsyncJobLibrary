@@ -5,7 +5,7 @@ Android library to easily queue background and UI tasks
 
 ## Index
 * [Why AsyncJob?](#why-asyncjob)
-* [Show what does it exactly do?](#so-what-does-it-exactly-do)
+* [So what does it exactly do?](#so-what-does-it-exactly-do)
 * [How does it work?](#how-does-it-work)
   * [Using static methods](#using-static-methods)
 * [Threading with ExecutorServices](#thats-good-but-id-like-to-have-a-better-control-of-my-background-threads)
