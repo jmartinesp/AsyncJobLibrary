@@ -158,9 +158,18 @@ In this example, I am supplying a SingleThreadExecutor to the AsyncJob, which wi
 
 ##How do I add it to my project?
 
-For now, you must manually download or clone this repo and import it to your current project as a Module.
+Add it to your gradle dependencies like this:
 
-A maven repo is coming and should be enabled soon, though.
+```
+dependencies {
+    ...
+    compile 'com.arasthel:asyncjob-library:1.+'
+    ...
+}
+
+```
+
+Also, you can manually download or clone this repo and import it to your current project as a Module.
 
 ##Reference:
 
