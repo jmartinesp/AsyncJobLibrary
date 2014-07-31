@@ -176,4 +176,4 @@ limitations under the License.
 I'm a freelance Android developer which can also code some Objective-C, Swift and little web (RoR, Django, even some NodeJS...). You can find more about me here. Bad thing is: I'm Spanish and I mostly speak Spanish on those sites. Anyway, you can contact me writing in English if you need help or want to talk.
 
 [![Twitter Account](https://dev.twitter.com/sites/default/files/images_documentation/bird_black_48_0.png)](https://twitter.com/arasthel92) [![LinkedIn](https://dlc1-s.licdn.com/sites/default/files/InBug-60px-R.png)](https://www.linkedin.com/profile/view?id=168652113)
-[![Ghost Blog](http://i.imgur.com/HBgKOjh.png)](blog.arasthel.com)
+[![Ghost Blog](http://i.imgur.com/HBgKOjh.png)](http://blog.arasthel.com)
