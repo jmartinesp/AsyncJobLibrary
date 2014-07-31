@@ -33,10 +33,10 @@ But creating an **AsyncJob** was also a boring thing to do so I created an ``Asy
 ``AsyncAction<ActionResult>`` and ``
 AsyncResultAction<ActionResult>``. They can be set by:
 
-```java
+``java
 asyncJob.setActionInBackground(actionInBackground);
 asyncJob.setActionOnResult(actionOnMainThread);
-```
+``
 
 And when you use ``asyncJob.start()`` it will call those interfaces and execute your code.
 
@@ -62,7 +62,8 @@ new AsyncJob.AsyncJobBuilder<Boolean>()
                 Toast.makeText(context, "Result was: " + result, Toast.LENGTH_SHORT).show();
         }
 }).create().start();
-        ```
+
+```
 
 ###AsyncJob static methods
 
@@ -99,13 +100,14 @@ AsyncJob.doInBackground(new AsyncJob.OnBackgroundJob() {
         });
     }
 });
+
 ```
 
 Which also have some interfaces made specially for them.
 
 ##That's good, but I'd like to have a better control of my background threads!
 
-Well, you can. You can provide an ``ExecutorService`` to an **AsyncJob** and the tasks that you want will be queued to it:
+Well, you can. You can provide an ```ExecutorService``` to an **AsyncJob** and the tasks that you want will be queued to it:
 
 ```java
 // Create a job to run on background
@@ -165,7 +167,9 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License.```
+limitations under the License.
+
+```
 
 ##About me:
 
