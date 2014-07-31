@@ -163,7 +163,7 @@ Add it to your gradle dependencies like this:
 ```
 dependencies {
     ...
-    compile 'com.arasthel:asyncjob-library:1.+'
+    compile 'com.arasthel:asyncjob-library:1.0.0'
     ...
 }
 
