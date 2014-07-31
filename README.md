@@ -3,9 +3,24 @@ AsyncJobLibrary
 
 Android library to easily queue background and UI tasks
 
+## Index
+* [Why AsyncJob?](#why-asyncjob)
+* [Show what does it exactly do?](#so-what-does-it-exactly-do)
+* [How does it work?](#how-does-it-work)
+  * [AsyncJob static methods](#asyncjob-static-methods)
+* [Threading with ExecutorServices](#how-do-i-add-it-to-my-project)
+* [How do I add it to my project?](#thats-good-but-id-like-to-have-a-better-control-of-my-background-threads)
+* [Reference](#reference)
+  * [Interfaces](#interfaces)
+  * [AsyncJob static methods](#asyncjob-statich-methods)
+  * [AsyncJob object methods](asyncjob-object-methods)
+  * AsyncJobBuilder methods](#asyncjobbuilder-methods)
+* [License](#license)
+* [About me](#about-me)
+
 ##Why AsyncJob?
 
-In my lasts projects I started using [Android Annotations](http://androidannotations.org/), which has an amazing set of tools to make creating Android applications a lot easier.
+In my latest projects I started using [Android Annotations](http://androidannotations.org/), which has an amazing set of tools to make creating Android applications a lot easier.
 
 However, for some stuff I wanted to make having to inherit from auto-built classes was an impossible thing to do and I ended up having half of my project using *AndroidAnnotations* and the other half doing stuff manually.
 
@@ -21,7 +36,7 @@ If you are working on Android you probably have ended up using AsyncTasks to do 
 
 I don't see why I would need to extend a class *EVERY FUCKING TIME* I want to do some work on background. Also, having to create a Thread and a Handler *EVERY FUCKING TIME* I wanted to do some background work and have a response wasn't a good option.
 
-So what I did is creating a library which does that for you.
+So what I did was to create a library which does that for you.
 
 ##How does it work?
 
@@ -146,6 +161,112 @@ In this example, I am supplying a SingleThreadExecutor to the AsyncJob, which wi
 For now, you must manually download or clone this repo and import it to your current project as a Module.
 
 A maven repo is coming and should be enabled soon, though.
+
+##Reference:
+
+####Interfaces:
+
+```java
+// These are for AsyncJob objects
+public interface AsyncAction<ActionResult> {
+    public ActionResult doAsync();
+}
+public interface AsyncResultAction<ActionResult> {
+    public void onResult(ActionResult result);
+}
+
+// These are for the static methods
+public interface OnMainThreadJob {
+    public void doInUIThread();
+}
+public interface OnBackgroundJob {
+    public void doOnBackground();
+}
+
+```
+
+####AsyncJob static methods:
+
+```java
+/**
+ * Executes the provided code immediately on a background thread
+ * @param onBackgroundJob Interface that wraps the code to execute
+ */
+public static void doInBackground(OnBackgroundJob onBackgroundJob);
+
+/**
+ * Executes the provided code immediately on the UI Thread
+ * @param onMainThreadJob Interface that wraps the code to execute
+ */
+public static void doOnMainThread(final OnMainThreadJob onMainThreadJob);
+
+/**
+ * Executes the provided code immediately on a background thread that will be submitted to the
+ * provided ExecutorService
+ * @param onBackgroundJob Interface that wraps the code to execute
+ * @param executor Will queue the provided code
+ */
+public static FutureTask doInBackground(final OnBackgroundJob onBackgroundJob, ExecutorService executor);
+
+```
+
+####AsyncJob object methods:
+
+```java
+public AsyncJob<JobResult>();
+// Sets the action to execute on background
+public void setActionInBackground(AsyncAction actionInBackground);
+public AsyncAction getActionInBackground();
+
+// Sets an action to be executed when the background one ends and returns a result
+public void setActionOnResult(AsyncResultAction actionOnMainThread);
+public AsyncResultAction getActionOnResult();
+
+// Sets the optional ExecutorService to queue the jobs
+public void setExecutorService(ExecutorService executorService);
+public ExecutorService getExecutorService();
+
+// Cancels the AsyncJob interrupting the inner thread.
+public void cancel();
+
+// Starts the execution
+public void start();
+
+```
+
+####AsyncJobBuilder methods:
+
+```java
+public AsyncJobBuilder<JobResult>();
+
+/**
+ * Specifies which action to run on background
+ * @param action the AsyncAction to run
+ * @return the builder object
+ */
+public AsyncJobBuilder<JobResult> doInBackground(AsyncAction<JobResult> action);
+
+/**
+ * Specifies which action to run when the background action ends
+ * @param action the AsyncAction to run
+ * @return the builder object
+ */
+public AsyncJobBuilder<JobResult> doWhenFinished(AsyncResultAction action);
+
+/**
+ * Used to provide an ExecutorService to launch the AsyncActions
+ * @param executor the ExecutorService which will queue the actions
+ * @return the builder object
+ */
+public AsyncJobBuilder<JobResult> withExecutor(ExecutorService executor);
+
+/**
+ * Instantiates a new AsyncJob of the given type
+ * @return a configured AsyncJob instance
+ */
+public AsyncJob<JobResult> create();
+
+```
 
 ##License
 
