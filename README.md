@@ -7,14 +7,14 @@ Android library to easily queue background and UI tasks
 * [Why AsyncJob?](#why-asyncjob)
 * [Show what does it exactly do?](#so-what-does-it-exactly-do)
 * [How does it work?](#how-does-it-work)
-  * [AsyncJob static methods](#asyncjob-static-methods)
-* [Threading with ExecutorServices](#how-do-i-add-it-to-my-project)
-* [How do I add it to my project?](#thats-good-but-id-like-to-have-a-better-control-of-my-background-threads)
+  * [Using static methods](#using-static-methods)
+* [Threading with ExecutorServices](#thats-good-but-id-like-to-have-a-better-control-of-my-background-threads)
+* [How do I add it to my project?](#how-do-i-add-it-to-my-project)
 * [Reference](#reference)
   * [Interfaces](#interfaces)
-  * [AsyncJob static methods](#asyncjob-statich-methods)
-  * [AsyncJob object methods](asyncjob-object-methods)
-  * AsyncJobBuilder methods](#asyncjobbuilder-methods)
+  * [AsyncJob static methods](#asyncjob-static-methods)
+  * [AsyncJob object methods](#asyncjob-object-methods)
+  * [AsyncJobBuilder methods](#asyncjobbuilder-methods)
 * [License](#license)
 * [About me](#about-me)
 
@@ -79,7 +79,7 @@ new AsyncJob.AsyncJobBuilder<Boolean>()
 
 ```
 
-###AsyncJob static methods
+###Using static methods
 
 Most of the time, though, I will prefer doing the following:
 
