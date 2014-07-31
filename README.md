@@ -30,13 +30,12 @@ It's really easy. If you want the library to work in a similar way to *AsyncTask
 But creating an **AsyncJob** was also a boring thing to do so I created an ``AsyncJobBuilder<T>`` which allows you to create **AsyncJobs** in a fast and clean way.
 
 **AsyncJobs** have two interfaces which will be used to store your code and execute it on backgrund or on the main thread. These are
-``AsyncAction<ActionResult>`` and ``
-AsyncResultAction<ActionResult>``. They can be set by:
+``AsyncAction<ActionResult>`` and ``AsyncResultAction<ActionResult>``. They can be set by:
 
-``java
+```java
 asyncJob.setActionInBackground(actionInBackground);
 asyncJob.setActionOnResult(actionOnMainThread);
-``
+```
 
 And when you use ``asyncJob.start()`` it will call those interfaces and execute your code.
 
