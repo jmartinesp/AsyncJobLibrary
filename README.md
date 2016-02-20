@@ -160,7 +160,7 @@ In this example, I am supplying a SingleThreadExecutor to the AsyncJob, which wi
 
 Add it to your gradle dependencies like this:
 
-```
+```groovy
 dependencies {
     ...
     compile 'com.arasthel:asyncjob-library:1.0.3'
