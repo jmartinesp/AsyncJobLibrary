@@ -18,7 +18,7 @@ Android library to easily queue background and UI tasks
 * [License](#license)
 * [About me](#about-me)
 
-##Why AsyncJob?
+## Why AsyncJob?
 
 In my latest projects I started using [Android Annotations](http://androidannotations.org/), which has an amazing set of tools to make creating Android applications a lot easier.
 
@@ -30,7 +30,7 @@ But not everything was good. *AndroidAnnotations* had a pair of annotations call
 
 **AsyncJob** was the closest I got to that.
 
-##So what does it exactly do?
+## So what does it exactly do?
 
 If you are working on Android you probably have ended up using AsyncTasks to do background tasks and then have a response on the UI Thread. Well, I'll confess: **I HATE ASYNCTASKS**.
 
@@ -38,7 +38,7 @@ I don't see why I would need to extend a class *EVERY FUCKING TIME* I want to do
 
 So what I did was to create a library which does that for you.
 
-##How does it work?
+## How does it work?
 
 It's really easy. If you want the library to work in a similar way to *AsyncTask*, you can create an ``AsyncJob<JobResult>`` where **JobResult** is the type or class of the item it will return.
 
@@ -79,7 +79,7 @@ new AsyncJob.AsyncJobBuilder<Boolean>()
 
 ```
 
-###Using static methods
+### Using static methods
 
 Most of the time, though, I will prefer doing the following:
 
@@ -119,7 +119,7 @@ AsyncJob.doInBackground(new AsyncJob.OnBackgroundJob() {
 
 Which also have some interfaces made specially for them.
 
-##That's good, but I'd like to have a better control of my background threads!
+## That's good, but I'd like to have a better control of my background threads!
 
 Well, you can. You can provide an ```ExecutorService``` to an **AsyncJob** and the tasks that you want will be queued to it:
 
@@ -156,7 +156,7 @@ for(int i = 0; i < 5; i++) {
 
 In this example, I am supplying a SingleThreadExecutor to the AsyncJob, which will only allow **one** thread to run at a time, serializing their execution. You can provide any other ExecutorServices tof it your needs.
 
-##How do I add it to my project?
+## How do I add it to my project?
 
 Add it to your gradle dependencies like this:
 
@@ -171,9 +171,9 @@ dependencies {
 
 Also, you can manually download or clone this repo and import it to your current project as a Module.
 
-##Reference:
+## Reference:
 
-####Interfaces:
+#### Interfaces:
 
 ```java
 // These are for AsyncJob objects
@@ -194,7 +194,7 @@ public interface OnBackgroundJob {
 
 ```
 
-####AsyncJob static methods:
+#### AsyncJob static methods:
 
 ```java
 /**
@@ -219,7 +219,7 @@ public static FutureTask doInBackground(final OnBackgroundJob onBackgroundJob, E
 
 ```
 
-####AsyncJob object methods:
+#### AsyncJob object methods:
 
 ```java
 public AsyncJob<JobResult>();
@@ -243,7 +243,7 @@ public void start();
 
 ```
 
-####AsyncJobBuilder methods:
+#### AsyncJobBuilder methods:
 
 ```java
 public AsyncJobBuilder<JobResult>();
@@ -277,7 +277,7 @@ public AsyncJob<JobResult> create();
 
 ```
 
-##License
+## License
 
 This software is licensed under Apachev2 which basically means that you can make your own version and it can be private.
 
@@ -300,7 +300,7 @@ limitations under the License.
 
 ```
 
-##About me:
+## About me:
 
 I'm a freelance Android developer which can also code some Objective-C, Swift and little web (RoR, Django, even some NodeJS...). You can find more about me here. Bad thing is: I'm Spanish and I mostly speak Spanish on those sites. Anyway, you can contact me writing in English if you need help or want to talk.
 
